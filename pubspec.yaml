@@ -1,7 +1,7 @@
 name: stytch_auth
 description: A custom flutter plugin for stytch auth sdks.
 version: 0.0.1
-homepage: www.outtapp.com
+homepage: www.stytch.com
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
@@ -26,10 +26,10 @@ flutter:
   plugin: 
     platforms: 
       android: 
-        package: com.stytch.plugin
-        pluginClass: StytchPlugin
+        package: com.stytchauth.stytch_auth
+        pluginClass: StytchAuthPlugin
       ios: 
-        pluginClass: StytchPlugin
+        pluginClass: StytchAuthPlugin
 
   # To add assets to your package, add an assets section, like this:
   # assets:
