@@ -32,4 +32,27 @@ class StytchAuthPlugin: FlutterPlugin, MethodCallHandler {
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
   }
+
+  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+    handler?.setActivity(binding.activity)
+  }
+
+  public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    when (requestCode) {
+      [YOUR OAUTH_REQUEST_CODE] -> data?.let { viewModel.oauthAuthenticate(resultCode, it) }
+    }
+  }
+
+  override fun onDetachedFromActivityForConfigChanges() {
+    handler?.setActivity(null)
+  }
+
+  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+    onAttachedToActivity(binding)
+  }
+
+  override fun onDetachedFromActivity() {
+    ///
+  }
 }

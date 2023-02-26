@@ -24,6 +24,11 @@ allprojects {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+android.defaultConfig.manifestPlaceholders = [
+        'stytchOAuthRedirectScheme': 'app',
+        'stytchOAuthRedirectHost': 'oauth'
+]
+
 android {
     compileSdkVersion 31
 
@@ -42,5 +47,9 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+        manifestPlaceholders = [
+                'stytchOAuthRedirectScheme': 'app',
+                'stytchOAuthRedirectHost': 'oauth'
+        ]
     }
 }
