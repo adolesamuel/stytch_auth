@@ -29,13 +29,13 @@ internal class MethodCallHandlerImpl(context: Context, activity: Activity?, even
             when (call.method) {
                 "configure" -> configure(call)
                 "startGoogleLogin" -> startGoogleLogin()
-                "guestLogin" -> guestLogin()
-                "loginWithEmail" -> loginWithEmail(call, result)
-                "checkAuthenticated" -> result.success(checkAuthenticated)
-                "logOut" -> logOut()
+                // "guestLogin" -> guestLogin()
+                // "loginWithEmail" -> loginWithEmail(call, result)
+                // "checkAuthenticated" -> result.success(checkAuthenticated)
+                // "logOut" -> logOut()
 
-                "getCollectionFilterInfo" -> getCollectionFilterInfo(call)
-                else -> result.notImplemented()
+                // "getCollectionFilterInfo" -> getCollectionFilterInfo(call)
+                // else -> result.notImplemented()
             }
 
         } catch (e: Exception) {

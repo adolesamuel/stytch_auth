@@ -15,9 +15,16 @@ class StytchAuthPlugin: FlutterPlugin, MethodCallHandler {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel : MethodChannel
+  private var handler: MethodCallHandlerImpl? = null
+  private val channelId = "stytch_auth"
+  private val eventChannelId = "stytch_auth/event"
+
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "stytch_auth")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, channelId)
+    eventChannel = EventChannel(binding.binaryMessenger, eventChannelId)
+    handler = MethodCallHandlerImpl(flutterPluginBinding.applicationContext, null, eventChannel, channel)
+
     channel.setMethodCallHandler(this)
   }
 
@@ -37,12 +44,12 @@ class StytchAuthPlugin: FlutterPlugin, MethodCallHandler {
     handler?.setActivity(binding.activity)
   }
 
-  public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    super.onActivityResult(requestCode, resultCode, data)
-    when (requestCode) {
-      [YOUR OAUTH_REQUEST_CODE] -> data?.let { viewModel.oauthAuthenticate(resultCode, it) }
-    }
-  }
+  // public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+  //   super.onActivityResult(requestCode, resultCode, data)
+  //   when (requestCode) {
+  //     [YOUR OAUTH_REQUEST_CODE] -> data?.let { viewModel.oauthAuthenticate(resultCode, it) }
+  //   }
+  // }
 
   override fun onDetachedFromActivityForConfigChanges() {
     handler?.setActivity(null)
@@ -52,7 +59,7 @@ class StytchAuthPlugin: FlutterPlugin, MethodCallHandler {
     onAttachedToActivity(binding)
   }
 
-  override fun onDetachedFromActivity() {
-    ///
-  }
+  // override fun onDetachedFromActivity() {
+  //   ///
+  // }
 }
