@@ -84,4 +84,4 @@ Feel free to submit a PR to handle the response object after sign-in.
 
 ## Additional information
 
-This has been abandoned. I only Implemented Signin with Google on Android.
+This has been abandoned by me. I only Implemented Signin with Google on Android.
