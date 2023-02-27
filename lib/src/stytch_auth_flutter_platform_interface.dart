@@ -23,4 +23,14 @@ abstract class StytchAuthFlutterPlatform extends PlatformInterface {
   }
 
   ///TODO: declare the methods needed to implement a valid StytchAuth
+
+  Future<void> configure({
+    required String publicToken,
+  }) {
+    throw UnimplementedError('configure has not been implemented.');
+  }
+
+  Future<void> loginWithGoogle() {
+    throw UnimplementedError('google login has not been implemented');
+  }
 }
