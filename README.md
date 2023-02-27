@@ -34,10 +34,12 @@ and from GCP.
 app/build.gradle setup
 1. compileSdkVersion 33
 2. minSdkVersion 23
-3.  manifestPlaceholders += [
+3.  
+```manifestPlaceholders += [
             'stytchOAuthRedirectScheme': 'app',
             'stytchOAuthRedirectHost': 'oauth'
         ]
+```
     The += ensures you're adding to the manifestPlaceHolders list and not overwriting it.
 
 ### Import
