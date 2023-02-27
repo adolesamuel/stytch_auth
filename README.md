@@ -35,12 +35,14 @@ app/build.gradle setup
 1. compileSdkVersion 33
 2. minSdkVersion 23
 3.  
-```manifestPlaceholders += [
+```
+manifestPlaceholders += [
             'stytchOAuthRedirectScheme': 'app',
             'stytchOAuthRedirectHost': 'oauth'
         ]
-```
-    The += ensures you're adding to the manifestPlaceHolders list and not overwriting it.
+ ```
+ 
+The += ensures you're adding to the manifestPlaceHolders list and not overwriting it.
 
 ### Import
 Import the repo is pubspec.yaml like so
