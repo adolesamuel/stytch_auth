@@ -30,7 +30,10 @@ abstract class StytchAuthFlutterPlatform extends PlatformInterface {
     throw UnimplementedError('configure has not been implemented.');
   }
 
-  Future<void> loginWithGoogle() {
+  Future<void> loginWithGoogle({
+    required String loginRedirectUrl,
+    required String signUpRedirectUrl,
+  }) {
     throw UnimplementedError('google login has not been implemented');
   }
 }

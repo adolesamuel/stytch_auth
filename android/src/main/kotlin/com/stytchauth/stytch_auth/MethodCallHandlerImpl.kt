@@ -46,13 +46,10 @@ internal class MethodCallHandlerImpl(context: Context, activity: Activity?, even
             when (call.method) {
                 "configure" -> configure(call)
                 "startGoogleLogin" -> startGoogleLogin()
-                // "guestLogin" -> guestLogin()
+            
                 // "loginWithEmail" -> loginWithEmail(call, result)
-                // "checkAuthenticated" -> result.success(checkAuthenticated)
-                // "logOut" -> logOut()
-
-                // "getCollectionFilterInfo" -> getCollectionFilterInfo(call)
-                // else -> result.notImplemented()
+             
+                else -> result.notImplemented()
             }
 
         } catch (e: Exception) {
@@ -94,12 +91,18 @@ internal class MethodCallHandlerImpl(context: Context, activity: Activity?, even
 //        }
 //    }
 
-    private fun startGoogleLogin(){
+    private fun startGoogleLogin(call: MethodCall){
+        ///Declare an oAuthRequestIdentifier to use in identifying which request was made.
+        ///therefore i'm using just a random one.
+
+       val loginRedirectUrl = call.argument<String>("login_redirect_url")
+       val signupRedirectUrl = call.argument<String>("signup_redirect_url")
+
         val startParameters = OAuth.ThirdParty.StartParameters(
                 context = activity!!,
                 oAuthRequestIdentifier = 3,
-                loginRedirectUrl = "app://oauth",
-                signupRedirectUrl = "app://oauth",
+                loginRedirectUrl = loginRedirectUrl,
+                signupRedirectUrl =signupRedirectUrl ,
         )
         StytchClient.oauth.google.start(startParameters)
     }

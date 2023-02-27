@@ -19,7 +19,11 @@ class StytchAuthFlutter {
         .configure(publicToken: publicToken);
   }
 
-  Future<void> loginWithGoogle() {
-    return StytchAuthFlutterPlatform.instance.loginWithGoogle();
+  Future<void> loginWithGoogle(
+      {required String loginRedirectUrl, required String signUpRedirectUrl}) {
+    return StytchAuthFlutterPlatform.instance.loginWithGoogle(
+      loginRedirectUrl: loginRedirectUrl,
+      signUpRedirectUrl: signUpRedirectUrl,
+    );
   }
 }

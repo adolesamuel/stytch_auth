@@ -21,7 +21,16 @@ class MethodChannelStytchAuthFlutter extends StytchAuthFlutterPlatform {
   }
 
   @override
-  Future<void> loginWithGoogle() {
-    return methodChannel.invokeMethod('startGoogleLogin');
+  Future<void> loginWithGoogle({
+    required String loginRedirectUrl,
+    required String signUpRedirectUrl,
+  }) {
+    return methodChannel.invokeMethod(
+      'startGoogleLogin',
+      {
+        'login_redirect_url': loginRedirectUrl,
+        'signup_redirect_url': signUpRedirectUrl,
+      },
+    );
   }
 }
