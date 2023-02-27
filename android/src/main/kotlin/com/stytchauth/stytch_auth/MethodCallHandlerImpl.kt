@@ -45,7 +45,7 @@ internal class MethodCallHandlerImpl(context: Context, activity: Activity?, even
         try {
             when (call.method) {
                 "configure" -> configure(call)
-                "startGoogleLogin" -> startGoogleLogin()
+                "startGoogleLogin" -> startGoogleLogin(call)
             
                 // "loginWithEmail" -> loginWithEmail(call, result)
              

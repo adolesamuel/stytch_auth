@@ -1,6 +1,6 @@
 name: stytch_auth
 description: A custom flutter plugin for stytch auth sdks.
-version: 0.0.5
+version: 0.0.6
 homepage: www.stytch.com
 
 environment:
