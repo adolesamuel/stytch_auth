@@ -2,6 +2,14 @@ package com.stytchauth.stytch_auth
 
 import androidx.annotation.NonNull
 
+import android.app.Activity
+import android.content.Context
+import android.util.Log
+import io.flutter.plugin.common.EventChannel
+import org.json.JSONArray
+import org.json.JSONObject
+
+
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
