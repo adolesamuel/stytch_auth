@@ -1,4 +1,14 @@
 import com.stytch.sdk.StytchClient
+import android.app.Activity
+import android.content.Context
+import android.util.Log
+import io.flutter.plugin.common.EventChannel
+import io.flutter.plugin.common.MethodCall
+import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugin.common.MethodChannel.MethodCallHandler
+import org.json.JSONArray
+import org.json.JSONObject
+
 
 internal class MethodCallHandlerImpl(context: Context, activity: Activity?, eventChannel: EventChannel, methodChannel: MethodChannel
 ): MethodCallHandler, EventChannel.StreamHandler, LoginListener,BoolListener, FetchUserListener{
@@ -8,8 +18,6 @@ internal class MethodCallHandlerImpl(context: Context, activity: Activity?, even
     private var eventChannel: EventChannel
     private var methodChannel: MethodChannel
     private val logTag: String = "StytchAuthSDKFlutter"
-    private var useDebugMode = true
-    private var checkAuthenticated = false
 
 
     init {

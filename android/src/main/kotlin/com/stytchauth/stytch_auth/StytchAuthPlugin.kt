@@ -25,24 +25,24 @@ class StytchAuthPlugin: FlutterPlugin, MethodCallHandler {
     eventChannel = EventChannel(binding.binaryMessenger, eventChannelId)
     handler = MethodCallHandlerImpl(flutterPluginBinding.applicationContext, null, eventChannel, channel)
 
-    channel.setMethodCallHandler(this)
+    channel.setMethodCallHandler(handler)
   }
 
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else {
-      result.notImplemented()
-    }
-  }
+  // override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
+  //   if (call.method == "getPlatformVersion") {
+  //     result.success("Android ${android.os.Build.VERSION.RELEASE}")
+  //   } else {
+  //     result.notImplemented()
+  //   }
+  // }
 
-  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
-  }
+  // override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+  //   channel.setMethodCallHandler(null)
+  // }
 
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    handler?.setActivity(binding.activity)
-  }
+  // override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+  //   handler?.setActivity(binding.activity)
+  // }
 
   // public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
   //   super.onActivityResult(requestCode, resultCode, data)
@@ -51,13 +51,13 @@ class StytchAuthPlugin: FlutterPlugin, MethodCallHandler {
   //   }
   // }
 
-  override fun onDetachedFromActivityForConfigChanges() {
-    handler?.setActivity(null)
-  }
+  // override fun onDetachedFromActivityForConfigChanges() {
+  //   handler?.setActivity(null)
+  // }
 
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    onAttachedToActivity(binding)
-  }
+  // override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+  //   onAttachedToActivity(binding)
+  // }
 
   // override fun onDetachedFromActivity() {
   //   ///
