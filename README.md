@@ -60,12 +60,15 @@ stytchAuthFlutter.configure(
 ```
 
 ### SignIn example
-using the redirect urls from Stytch dashboard make request to do google Sign in a button like.
+using the redirect urls from Stytch's dashboard, make request to do google Sign in a button like.
+
 ```
 ElevatedButton(
 onPressed: () {
                 final stytch = StytchAuthFlutter.instance;
+                
                 stytch.loginWithGoogle(loginRedirectUrl:<loginRedirectUrl> , signupRedirectUrl: <signUpRedirectUrl>);
+                
               },), 
 ```
 
