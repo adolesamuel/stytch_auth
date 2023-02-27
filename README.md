@@ -45,7 +45,7 @@ manifestPlaceholders += [
 The += ensures you're adding to the manifestPlaceHolders list and not overwriting it.
 
 ### Import
-Import the repo is pubspec.yaml like so
+Import the repo in pubspec.yaml like so
 ```
 stytch_auth:
     git:
