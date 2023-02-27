@@ -2,7 +2,7 @@ group 'com.stytchauth.stytch_auth'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.8.0'
     repositories {
         google()
         mavenCentral()
@@ -11,6 +11,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
     }
 }
 
@@ -23,11 +24,6 @@ allprojects {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
-android.defaultConfig.manifestPlaceholders = [
-        'stytchOAuthRedirectScheme': 'app',
-        'stytchOAuthRedirectHost': 'oauth'
-]
 
 android {
     compileSdkVersion 31
@@ -46,10 +42,16 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         manifestPlaceholders = [
                 'stytchOAuthRedirectScheme': 'app',
                 'stytchOAuthRedirectHost': 'oauth'
         ]
     }
+    dependencies {
+        implementation 'com.stytch.sdk:sdk:0.9.0'
+    }
+
+
 }
+

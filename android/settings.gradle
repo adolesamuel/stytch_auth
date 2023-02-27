@@ -1,1 +1,6 @@
 rootProject.name = 'stytch_auth'
+sourceControl {
+    gitRepository(new URI("https://github.com/stytchauth/stytch-kotlin.git")) {
+        producesModule("com.stytch.sdk:sdk:0.9.0")
+    }
+}
